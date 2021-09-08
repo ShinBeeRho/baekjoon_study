@@ -1,0 +1,52 @@
+#include <stdio.h>
+#include<string.h>
+#include<malloc.h>
+#pragma warning(disable:4996)
+
+int read_line(char str[], int limit);
+
+int main()
+{
+   int n,m;
+;
+   scanf("%d", &n);
+   char QR[] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ\\$%*+-./:";
+   
+
+   for(int i=0;i<n;i++)
+   {
+      char buffer[20];
+      scanf("%d ", &m);
+
+      int a = read_line(buffer, 20);
+
+      for (int j = 0; j < a; j++)
+      {
+         for (int z = 0; z < m; z++)
+         {
+            for (int f = 0; f < 46; f++)
+            {
+               if (buffer[j] == QR[f])
+                  printf("%c", buffer[j]);
+            }
+         }
+      }
+      printf("\n");
+   }
+
+
+   return 0;
+}
+
+int read_line(char str[], int limit)
+{
+   int ch, i = 0;
+   while ((ch = getchar()) != '\n')
+   {
+      if (i < limit - 1)
+         str[i++] = ch;
+   }
+
+   str[i] = '\0';
+   return i;
+}
