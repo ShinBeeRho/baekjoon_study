@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include<string.h>
+#include<ctype.h>
+#include<malloc.h>
+#pragma warning(disable:4996)
+
+void sangsu(char* a);
+int main()
+{
+	char a[4];
+	char b[4];
+
+	scanf("%s", a);
+	scanf("%s", b);
+
+	sangsu(a);
+	sangsu(b);
+
+	int A, B;
+	
+	A = (100 * a[0]) + (10 * a[1]) + a[2];
+	B = (100 * b[0]) + (10 * b[1]) + b[2];
+
+	if (A > B)
+		printf("%s", a);
+	else
+		printf("%s", b);
+	
+	return 0;
+}
+
+void sangsu(char* a)
+{
+	char* tmp;
+	tmp = strdup(a);
+
+	int n = strlen(tmp);
+	int j = n - 1;
+	for (int i = 0; i < n; i++)
+	{
+		a[i] = tmp[j];
+		j--;
+	}
+}
