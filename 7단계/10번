@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include<string.h>
+#include<ctype.h>
+#include<malloc.h>
+#pragma warning(disable:4996)
+
+int main()
+{
+   int n;
+   scanf("%d", &n);
+
+   char buffer[100];
+   int alph[26];
+   
+   
+
+   int count = 0;
+   for (int i = 0; i < n; i++)
+   {
+      for (int z = 0; z < 26; z++)
+      {
+         alph[z] = -1;
+      }
+      scanf("%s", buffer);
+      int a = strlen(buffer);
+      int m = 0;
+      for (int j = 0; j < a; j++)
+      {
+         if ((alph[buffer[j] - 97] == -1) && (buffer[j] != buffer[j + 1]))
+         {
+            alph[buffer[j] - 97]++;
+         }
+
+         else if (alph[buffer[j] - 97] != -1)
+         {
+            m = 1;
+            break;
+         }
+      }
+
+
+      if (m != 1)
+         count++;
+   }
+
+   printf("%d", count);
+
+
+   
+   return 0;
+}

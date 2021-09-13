@@ -1,0 +1,79 @@
+#include <stdio.h>
+#include<string.h>
+#include<ctype.h>
+#include<malloc.h>
+#pragma warning(disable:4996)
+
+char alph[] = "c= c- d- lj nj s= z= dz=";
+char* croatia[9];
+
+int main()
+{
+   char* token;
+   token = strtok(alph, " ");
+
+   int i = 0;
+   croatia[i] = token;
+   i++;
+
+   while (token != NULL)
+   {
+      token = strtok(NULL, " ");
+      croatia[i] = token;
+      i++;
+   }
+
+   char input[101];
+   scanf("%s", input);
+
+   int a = strlen(input);
+   int count1 = 0;
+   int count2 = 0;
+   
+   int j = 0;
+
+   while(input[j+1]!='\0')
+   {
+      char s[3] = {};
+      s[0] =  input[j];
+      s[1] = input[j + 1];
+      s[2] = '\0';
+
+      for (int z = 0; z < 7; z++)
+      {
+         if (strcmp(s, croatia[z]) == 0)
+         {
+
+            count1 ++;
+            break;
+         }
+      }
+      j++;
+   }
+
+   j = 0;
+
+   while (input[j + 2] != '\0')
+   {
+      char s[4] = {};
+      s[0] = input[j];
+      s[1] = input[j + 1];
+      s[2] = input[j + 2];
+      s[3] = '\0';
+
+
+
+   if (strcmp(s, croatia[7]) == 0)
+      {
+         count2 ++;
+         count1--;
+      }
+   j++;
+   }
+
+   a = a - ((count1 * 2) + (count2 * 3));
+   printf("%d", a+count1+count2);
+
+
+   return 0;
+}
