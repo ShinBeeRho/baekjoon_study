@@ -4,7 +4,7 @@
 #include<malloc.h>
 #pragma warning(disable:4996)
 
-char alph[] = "c= c- d- lj nj s= z= dz=";
+char alph[] = "c= c- d- lj nj s= z= dz=";//특수크로아티아 알파벳
 char* croatia[9];
 
 int main()
@@ -21,7 +21,7 @@ int main()
       token = strtok(NULL, " ");
       croatia[i] = token;
       i++;
-   }
+   }//특수 크로아티아 알파벳 배열
 
    char input[101];
    scanf("%s", input);
@@ -32,7 +32,7 @@ int main()
    
    int j = 0;
 
-   while(input[j+1]!='\0')
+   while(input[j+1]!='\0')//두글자 특수 크로아티아 알파벳인 경우
    {
       char s[3] = {};
       s[0] =  input[j];
@@ -53,7 +53,7 @@ int main()
 
    j = 0;
 
-   while (input[j + 2] != '\0')
+   while (input[j + 2] != '\0')//3글자인 특수 크로아티아 알파벳인 경우
    {
       char s[4] = {};
       s[0] = input[j];
@@ -63,7 +63,7 @@ int main()
 
 
 
-   if (strcmp(s, croatia[7]) == 0)
+   if (strcmp(s, croatia[7]) == 0)//dz=랑 z=겹치니까 z=인경우 빼기
       {
          count2 ++;
          count1--;
@@ -71,8 +71,8 @@ int main()
    j++;
    }
 
-   a = a - ((count1 * 2) + (count2 * 3));
-   printf("%d", a+count1+count2);
+   a = a - ((count1 * 2) + (count2 * 3));//a는 특수 크로아티아 알파벳이 아닌 한글자짜리 알파벳
+   printf("%d", a+count1+count2); // 세가지 경우를 다더한다
 
 
    return 0;
