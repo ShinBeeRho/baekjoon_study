@@ -8,4 +8,4 @@ for i in range(1,N):
     if arr[i][0] >= res[-1][1] :
         res.append(arr[i])
 
-print(len(res))    
+print(len(res))
